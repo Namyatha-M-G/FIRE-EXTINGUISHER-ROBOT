@@ -1,0 +1,546 @@
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #0d1117;
+
+    color: #f0f6fc;
+}
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    padding: 8px 16px;
+
+    background: #161b22;
+
+    border-bottom: 1px solid #30363d;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    font-size: 20px;
+}
+
+
+.subtitle {
+
+    margin-top: 2px;
+
+    color: #8b949e;
+
+    font-size: 11px;
+}
+
+
+
+/* =========================================================
+   CONNECTION BAR
+========================================================= */
+
+.connection-bar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 16px;
+
+    background: #11161d;
+
+    border-bottom: 1px solid #30363d;
+
+    font-size: 12px;
+}
+
+
+.connection-bar input {
+
+    width: 125px;
+
+    padding: 4px 6px;
+
+    background: #0d1117;
+
+    color: white;
+
+    border: 1px solid #30363d;
+
+    border-radius: 5px;
+}
+
+
+.connection-bar button {
+
+    padding: 4px 11px;
+
+    background: #1f6feb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+.connection-bar button:hover {
+
+    opacity: 0.85;
+}
+
+
+
+/* =========================================================
+   CONNECTION STATUS
+========================================================= */
+
+.online {
+
+    color: #3fb950;
+
+    font-weight: bold;
+}
+
+
+.offline {
+
+    color: #f85149;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 6px 13px;
+}
+
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+
+    margin: 7px 0 4px;
+
+    font-size: 15px;
+}
+
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    background: #161b22;
+
+    border: 1px solid #30363d;
+
+    border-radius: 7px;
+
+    padding: 6px 9px;
+}
+
+
+.card h3 {
+
+    margin: 0 0 4px;
+
+    font-size: 13px;
+}
+
+
+
+/* =========================================================
+   SYSTEM OVERVIEW
+========================================================= */
+
+.overview {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 6px;
+}
+
+
+.overview-card {
+
+    min-height: 48px;
+}
+
+
+.overview-value {
+
+    margin-top: 2px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================================
+   ALERT SUMMARY
+========================================================= */
+
+.alert-summary {
+
+    margin-top: 5px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #161b22;
+
+    border: 1px solid #30363d;
+
+    font-size: 12px;
+}
+
+
+.alert-normal {
+
+    color: #3fb950;
+
+    font-weight: bold;
+}
+
+
+.alert-active {
+
+    color: #f85149;
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================================
+   SENSOR NODES
+========================================================= */
+
+.nodes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 6px;
+}
+
+
+
+/* =========================================================
+   NODE CARD
+========================================================= */
+
+.node-card {
+
+    border-left: 4px solid #238636;
+}
+
+
+.node-card.alert {
+
+    border-left-color: #da3633;
+}
+
+
+.node-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 3px;
+}
+
+
+.node-header h3 {
+
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+.node-status {
+
+    padding: 2px 6px;
+
+    border-radius: 12px;
+
+    background: #238636;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+
+.node-status.alert {
+
+    background: #da3633;
+}
+
+
+
+/* =========================================================
+   DATA ROW
+========================================================= */
+
+.row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 2px 0;
+
+    border-bottom: 1px solid #21262d;
+
+    font-size: 11px;
+}
+
+
+.row:last-child {
+
+    border-bottom: none;
+}
+
+
+.value {
+
+    font-weight: bold;
+}
+
+
+
+/* =========================================================
+   NORMAL / FIRE / WARNING
+========================================================= */
+
+.normal {
+
+    color: #3fb950;
+}
+
+
+.fire {
+
+    color: #f85149;
+}
+
+
+.warning {
+
+    color: #d29922;
+}
+
+
+
+/* =========================================================
+   NODE FIRE ALERT
+========================================================= */
+
+.fire-alert {
+
+    margin-top: 5px;
+
+    padding: 4px 6px;
+
+    border-radius: 5px;
+
+    background: #3d1515;
+
+    border: 1px solid #f85149;
+
+    color: #ff7b72;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+.fire-alert.hidden {
+
+    display: none;
+}
+
+
+
+/* =========================================================
+   ROBOT TELEMETRY
+========================================================= */
+
+.robot-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    grid-template-rows:
+        auto auto;
+
+    gap: 6px;
+
+    align-items: stretch;
+}
+
+
+
+/* =========================================================
+   POSITION — LEFT TOP
+========================================================= */
+
+.telemetry-position {
+
+    grid-column: 1;
+
+    grid-row: 1;
+}
+
+
+
+/* =========================================================
+   FLAME — LEFT BOTTOM
+========================================================= */
+
+.telemetry-flame {
+
+    grid-column: 1;
+
+    grid-row: 2;
+}
+
+
+
+/* =========================================================
+   HARDWARE — RIGHT
+========================================================= */
+
+.telemetry-hardware {
+
+    grid-column: 2;
+
+    grid-row: 1 / 3;
+}
+
+
+
+/* =========================================================
+   LAST UPDATE
+========================================================= */
+
+.last-update {
+
+    margin-top: 4px;
+
+    color: #8b949e;
+
+    font-size: 10px;
+
+    text-align: right;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .overview {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .overview,
+    .nodes {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .robot-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .telemetry-position,
+    .telemetry-flame,
+    .telemetry-hardware {
+
+        grid-column: 1;
+
+        grid-row: auto;
+    }
+
+
+    .connection-bar {
+
+        flex-wrap: wrap;
+    }
+
+}

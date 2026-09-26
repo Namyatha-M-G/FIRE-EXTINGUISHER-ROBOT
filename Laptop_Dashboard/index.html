@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PyroGuard Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+
+        <h1>
+             PyroGuard
+        </h1>
+
+        <div class="subtitle">
+            Fire Detection & Autonomous Response System
+        </div>
+
+    </header>
+
+    <div class="connection-bar">
+
+        <span>
+            Robot IP:
+        </span>
+
+        <input
+            type="text"
+            id="robot-ip"
+            value="192.168.4.1"
+        >
+
+        <button onclick="connectRobot()">
+            Connect
+        </button>
+
+        <span
+            id="connection-status"
+            class="offline"
+        >
+            ● OFFLINE
+        </span>
+
+    </div>
+    <main>
+        <h2 class="section-title">
+            System Overview
+        </h2>
+
+
+        <div class="overview">
+
+
+            <!-- Robot Mode -->
+
+            <div class="card overview-card">
+
+                <div>
+                    Robot Mode
+                </div>
+
+                <div
+                    id="robot-mode"
+                    class="overview-value"
+                >
+                    --
+                </div>
+
+            </div>
+
+
+            <!-- Robot State -->
+
+            <div class="card overview-card">
+
+                <div>
+                    Robot State
+                </div>
+
+                <div
+                    id="robot-state"
+                    class="overview-value"
+                >
+                    --
+                </div>
+
+            </div>
+
+
+            <!-- Pump -->
+
+            <div class="card overview-card">
+
+                <div>
+                    Pump
+                </div>
+
+                <div
+                    id="pump"
+                    class="overview-value"
+                >
+                    --
+                </div>
+
+            </div>
+
+
+            <!-- Active Alerts -->
+
+            <div class="card overview-card">
+
+                <div>
+                    Active Alerts
+                </div>
+
+                <div
+                    id="alert-count"
+                    class="overview-value"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div
+            id="alert-summary"
+            class="alert-summary"
+        >
+
+            <span class="alert-normal">
+                ✓ No active alerts
+            </span>
+
+        </div>
+
+
+        <h2 class="section-title">
+            Sensor Nodes
+        </h2>
+
+
+        <div class="nodes">
+            <div
+                id="node-card-1"
+                class="card node-card"
+            >
+
+                <div class="node-header">
+
+                    <h3 id="node1-name">
+                        Node 1
+                    </h3>
+
+                    <span
+                        id="node1-status"
+                        class="node-status"
+                    >
+                        OK
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Flame
+                    </span>
+
+                    <span
+                        id="node1-flame"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Gas
+                    </span>
+
+                    <span
+                        id="node1-gas"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        X Position
+                    </span>
+
+                    <span
+                        id="node1-x"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Y Position
+                    </span>
+
+                    <span
+                        id="node1-y"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Alert
+                    </span>
+
+                    <span
+                        id="node1-alert"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <!-- NODE 1 FIRE ALERT -->
+
+                <div
+                    id="node1-fire-alert"
+                    class="fire-alert hidden"
+                >
+                    🔥 FIRE ALERT — NODE 1
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NODE 2
+            ================================================== -->
+
+            <div
+                id="node-card-2"
+                class="card node-card"
+            >
+
+                <div class="node-header">
+
+                    <h3 id="node2-name">
+                        Node 2
+                    </h3>
+
+                    <span
+                        id="node2-status"
+                        class="node-status"
+                    >
+                        OK
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Flame
+                    </span>
+
+                    <span
+                        id="node2-flame"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Gas
+                    </span>
+
+                    <span
+                        id="node2-gas"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        X Position
+                    </span>
+
+                    <span
+                        id="node2-x"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Y Position
+                    </span>
+
+                    <span
+                        id="node2-y"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Alert
+                    </span>
+
+                    <span
+                        id="node2-alert"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <!-- NODE 2 FIRE ALERT -->
+
+                <div
+                    id="node2-fire-alert"
+                    class="fire-alert hidden"
+                >
+                    🔥 FIRE ALERT — NODE 2
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ROBOT TELEMETRY
+        ================================================== -->
+
+        <h2 class="section-title">
+            Robot Telemetry
+        </h2>
+
+
+        <div class="robot-grid">
+
+
+            <!-- =================================================
+                 LEFT TOP — POSITION
+            ================================================== -->
+
+            <div class="card telemetry-position">
+
+                <h3>
+                    Robot Position
+                </h3>
+
+
+                <div class="row">
+
+                    <span>
+                        X
+                    </span>
+
+                    <span
+                        id="robot-x"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Y
+                    </span>
+
+                    <span
+                        id="robot-y"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Heading
+                    </span>
+
+                    <span
+                        id="heading"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LEFT BOTTOM — FLAME SENSORS
+            ================================================== -->
+
+            <div class="card telemetry-flame">
+
+                <h3>
+                    Robot Flame Sensors
+                </h3>
+
+
+                <div class="row">
+
+                    <span>
+                        Left
+                    </span>
+
+                    <span
+                        id="flame-left"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Front
+                    </span>
+
+                    <span
+                        id="flame-front"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Right
+                    </span>
+
+                    <span
+                        id="flame-right"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT — ROBOT HARDWARE
+            ================================================== -->
+
+            <div class="card telemetry-hardware">
+
+                <h3>
+                    Robot Hardware
+                </h3>
+
+
+                <div class="row">
+
+                    <span>
+                        Motor Speed
+                    </span>
+
+                    <span
+                        id="motor-speed"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Pump
+                    </span>
+
+                    <span
+                        id="robot-pump"
+                        class="value"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+
+                <div class="row">
+
+                    <span>
+                        Connection
+                    </span>
+
+                    <span
+                        id="robot-connection"
+                        class="value offline"
+                    >
+                        OFFLINE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             LAST UPDATE
+        ================================================== -->
+
+        <div
+            id="last-update"
+            class="last-update"
+        >
+            Waiting for robot data...
+        </div>
+
+
+    </main>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+#ifndef ROBOT_FSM_H
+#define ROBOT_FSM_H
+
+typedef enum
+{
+    ROBOT_IDLE,
+
+    ROBOT_SCAN,
+
+    ROBOT_NAV_TO_NODE,
+
+    ROBOT_MOVE_FORWARD,
+
+    ROBOT_TURN_LEFT,
+
+    ROBOT_TURN_RIGHT,
+
+    ROBOT_EXTINGUISH,
+
+    ROBOT_VERIFY,
+
+    ROBOT_ARRIVED_AT_NODE,
+
+    ROBOT_SEARCH_FIRE,
+
+    ROBOT_NAV_TO_HOME
+
+} robot_state_t;
+
+#endif
